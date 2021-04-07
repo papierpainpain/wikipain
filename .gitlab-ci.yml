@@ -1,0 +1,34 @@
+variables:
+    PROJECT_NAME:
+        value: "wiki"
+        description: "project name in /var/www/html/"
+
+generate-html:
+    stage: build
+    tags:
+        - docker
+        - material-mkdocs
+    script:
+        - mkdocs build --clean
+    artifacts:
+        paths:
+            - site/
+
+clean-deploy:
+    stage: deploy
+    tags:
+        - localhost
+        - shell
+    script:
+        - rm -rf /var/www/html/$PROJECT_NAME
+        - mkdir /var/www/html/$PROJECT_NAME
+        - cp -r site/* /var/www/html/$PROJECT_NAME
+    needs:
+        - job: generate-html
+          artifacts: true
+
+# workflow:
+#     rules:
+#         - if: '$CI_PIPELINE_SOURCE == "web"'
+#           when: always
+#         - when: never

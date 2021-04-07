@@ -1,0 +1,123 @@
+site_name: WikiPain
+site_url: https://wiki.papierpain.fr
+site_description: Ici tu trouveras toutes sortes de documentations qui sont liées au développement ou à la Raspberry pi.
+site_author: Steven Gourves
+
+nav:
+    - Accueil: index.md
+    - Raspberry Pi:
+        - raspi/index.md
+        - Installation: raspi/installation.md
+        - Configuration: raspi/configuration.md
+        - Sécurité: raspi/securite.md
+    - Serveurs:
+        - Web:
+            - LAMP: servers/web/lamp.md
+            - Python: servers/web/python.md
+        - Docker: servers/docker.md
+        - Gitlab: servers/gitlab.md
+        - Minecraft: servers/minecraft.md
+        - Seafile: servers/seafile.md
+    - Autres tuto:
+        - tutopain/index.md
+        - Scripts Bash: tutopain/bash-script.md
+        - MK Docs: tutopain/mkdocs.md
+        - Ansible:
+            - tutopain/ansible/index.md
+            - Installation & Configuration: tutopain/ansible/configuration.md
+            - Utilisation: tutopain/ansible/utilisation.md
+    - Mon infrastructure:
+        - home/index.md
+        - Mon nuage:
+            - home/nuage/index.md
+            - MariaDB: home/nuage/mariadb.md
+            - Apache: home/nuage/apache.md
+            - Seafile: home/nuage/seafile.md
+        - Nananas:
+            - home/nananas/index.md
+        - Bananas:
+            - home/bananas/index.md
+    - Annexes:
+        - Sources: sources.md
+        - Archives:
+            - Git: archives/git.md
+            - Monitoring: archives/monitoring.md
+            - Nextcloud: archives/nextcloud.md
+            - Samba: archives/samba.md
+
+theme:
+    name: material
+    language: fr
+    #################
+    favicon: images/wikipain.ico
+    logo: images/wikipain.svg
+    #################
+    features:
+        - navigation.tabs
+        - navigation.indexes
+        - search.suggest
+        - search.highlight
+        - content.tabs.link
+        - content.code.annotate
+    #################
+    prev_next_buttons_location: bottom
+    #################
+    palette:
+        # Dark mode
+        - scheme: slate
+          primary: teal
+          accent: amber
+          toggle:
+            icon: material/weather-sunny
+            name: JOUUURRR
+        # Light mode
+        - scheme: default
+          primary: teal
+          accent: amber
+          toggle:
+            icon: material/weather-night
+            name: NUIIITTT
+    icon:
+        admonition:
+            note: octicons/tag-16
+            abstract: octicons/checklist-16
+            info: octicons/info-16
+            tip: octicons/squirrel-16
+            success: octicons/check-16
+            question: octicons/question-16
+            warning: octicons/alert-16
+            failure: octicons/x-circle-16
+            danger: octicons/zap-16
+            bug: octicons/bug-16
+            example: octicons/beaker-16
+            quote: octicons/quote-16
+
+markdown_extensions:
+    - admonition
+    - toc:
+        permalink: ⚓︎
+        toc_depth: 5
+    - pymdownx.highlight:
+        anchor_linenums: true
+        linenums: true
+        linenums_style: pymdownx.inline
+    - pymdownx.inlinehilite
+    - pymdownx.superfences
+    - pymdownx.snippets
+    - pymdownx.details
+    - def_list
+    - pymdownx.tasklist:
+        custom_checkbox: true
+    - pymdownx.emoji:
+        emoji_index: !!python/name:materialx.emoji.twemoji
+        emoji_generator: !!python/name:materialx.emoji.to_svg
+    - pymdownx.tabbed:
+        alternate_style: true
+    - attr_list
+    - md_in_html
+
+plugins:
+    - search:
+        lang: fr
+
+copyright: Copyright © 2020-2021 <a href="https://www.gourves-steven.fr">Steven Gourves</a>, Correctionné par Julie Bousseau , Create with ❤.
