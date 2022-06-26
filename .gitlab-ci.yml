@@ -27,8 +27,8 @@ clean-deploy:
         - job: generate-html
           artifacts: true
 
-# workflow:
-#     rules:
-#         - if: '$CI_PIPELINE_SOURCE == "web"'
-#           when: always
-#         - when: never
+workflow:
+    rules:
+        - if: '$CI_PIPELINE_SOURCE == "web" && $CI_COMMIT_REF_SLUG == "master"'
+          when: always
+        - when: never

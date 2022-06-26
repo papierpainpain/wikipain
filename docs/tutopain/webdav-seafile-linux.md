@@ -12,23 +12,31 @@ Nous allons donc, créer un point de montage WebDAV en ligne de commande Linux.
 
 ## Configuration
 
-??? quote
+???+ quote
     La démarche suivante montre comment créer un point de montage personnel et activer sa connexion automatiquement à chaque fois que vous vous connectez à votre ordinateur.
 
 ### 1. Installez le driver WebDAV `davfs2`
    
 Il autorise le montage de partages WebDAV comme n’importe quel autre filesystem distant.
 
-* Utilisez cette commande pour l’installer sur Debian/Ubuntu :
+* Sur Debian/Ubuntu :
 
     ```bash
     sudo apt-get install davfs2
     ```
 
-* Utilisez cette commande pour l’installer sur CentOS, Fedora, and openSUSE :
+* Sur CentOS, Fedora, et openSUSE :
 
     ```bash
     sudo yum install davfs2
+    ```
+
+* Sur Manjaro
+
+    ```bash
+    yay -S davfs2
+    # OU
+    pacman -S davfs2
     ```
 
 ### 2. Ajoutez vous au groupe `davfs2`
@@ -37,7 +45,7 @@ Il autorise le montage de partages WebDAV comme n’importe quel autre filesyste
 sudo usermod -aG davfs2 $USER
 ```
 
-??? quote
+???+ quote
     Vous devez vous reconnecter pour que votre groupe soit pris en compte.
 
 ### 3. Créez les répertoires de montage
@@ -71,6 +79,8 @@ https://nuage.papierpain.fr/seafdav/ <votre-mail> <votre-mot-de-passe>
 ```
 
 ### 7. Configurez le point de montage `/etc/fstab`
+
+A la fin du fichier `/etc/fstab`, ajoutez la ligne suivante :
 
 ```conf
 https://nuage.papierpain.fr/seafdav/	/home/<utilisateur-linux>/nuage	davfs	user,rw,auto	0	0
