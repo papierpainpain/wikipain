@@ -7,8 +7,8 @@
 ## Local development
 
 ```bash
-pip install mkdocs
-pip install mkdocs-material # theme
+pip3 install mkdocs
+pip3 install mkdocs-material # theme
 ```
 
 To build project run the following command :

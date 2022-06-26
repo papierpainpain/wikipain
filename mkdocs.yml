@@ -20,6 +20,7 @@ nav:
         - Seafile: servers/seafile.md
     - Autres tuto:
         - tutopain/index.md
+        - Configuration Webdav Seafile sur Linux: tutopain/webdav-seafile-linux.md
         - Scripts Bash: tutopain/bash-script.md
         - MK Docs: tutopain/mkdocs.md
         - Ansible:
