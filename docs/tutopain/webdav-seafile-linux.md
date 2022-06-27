@@ -1,6 +1,6 @@
 # Accès aux fichiers Seafile avec WebDAV
 
-???+ summary
+!!! summary "Informations générales"
     Tutoriel basé sur celui de Nextcloud qui marche très bien ! ([Accès aux fichiers Nextcloud avec WebDAV](https://docs.nextcloud.com/server/latest/user_manual/fr/files/access_webdav.html#creating-webdav-mounts-on-the-linux-command-line))
 
 ## Description
@@ -12,7 +12,7 @@ Nous allons donc, créer un point de montage WebDAV en ligne de commande Linux.
 
 ## Configuration
 
-???+ quote
+!!! quote ""
     La démarche suivante montre comment créer un point de montage personnel et activer sa connexion automatiquement à chaque fois que vous vous connectez à votre ordinateur.
 
 ### 1. Installez le driver WebDAV `davfs2`
@@ -45,7 +45,7 @@ Il autorise le montage de partages WebDAV comme n’importe quel autre filesyste
 sudo usermod -aG davfs2 $USER
 ```
 
-???+ quote
+!!! quote
     Vous devez vous reconnecter pour que votre groupe soit pris en compte.
 
 ### 3. Créez les répertoires de montage
