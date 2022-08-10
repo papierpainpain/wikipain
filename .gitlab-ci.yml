@@ -29,6 +29,6 @@ clean-deploy:
 
 workflow:
     rules:
-        - if: '$CI_PIPELINE_SOURCE == "web" && $CI_COMMIT_REF_SLUG == "master"'
+        - if: '$CI_PIPELINE_SOURCE == "web" || $CI_COMMIT_REF_SLUG == "master"'
           when: always
         - when: never

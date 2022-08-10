@@ -3,65 +3,101 @@ site_url: https://wiki.papierpain.fr
 site_description: Ici tu trouveras toutes sortes de documentations qui sont liées au développement ou à la Raspberry pi.
 site_author: Steven Gourves
 
+repo_url: https://gitlab.papierpain.fr/nananas/wikipain
+repo_name: nananas/wikipain
+
 nav:
     - Accueil: index.md
-    - Raspberry Pi:
-        - raspi/index.md
-        - Installation: raspi/installation.md
-        - Configuration: raspi/configuration.md
-        - Sécurité: raspi/securite.md
-    - Serveurs:
-        - Web:
-            - LAMP: servers/web/lamp.md
-            - Python: servers/web/python.md
-        - Docker: servers/docker.md
-        - Gitlab: servers/gitlab.md
-        - Minecraft: servers/minecraft.md
-        - Seafile: servers/seafile.md
-    - Autres tuto:
-        - tutopain/index.md
-        - Configuration Webdav Seafile sur Linux: tutopain/webdav-seafile-linux.md
+    - Tutoriels:
+        - tutoriels/index.md
+        - Connexion WebDAV avec Seafile: tutoriels/connexion-webdav-seafile.md
+        - Setup Raspberry pi:
+            - tutoriels/raspberry-pi/index.md
+            - A. Installation: tutoriels/raspberry-pi/a-installation.md
+            - B. Configuration: tutoriels/raspberry-pi/b-configuration.md
+            - C. Sécurité: tutoriels/raspberry-pi/c-securite.md
+        - Serveur Minecraft: tutoriels/serveur-minecraft.md
+        - Serveur LAMP: tutoriels/serveur-lamp.md
+        - Serveur Web PHP (local): tutoriels/serveur-web-local.md
+        - Installation de Docker (raspi): tutoriels/docker-raspi.md
+    - DevOps:
+        - devops/index.md
+        - Préparation: devops/preparation.md
+        - Versionner son projet:
+            - devops/versionner-son-projet/index.md
+            - A. Développement: devops/versionner-son-projet/a-phase-developpement.md
+            - B. Préparation d'une version: devops/versionner-son-projet/b-phase-preproduction.md
+            - C. Mise en production: devops/versionner-son-projet/c-phase-production.md
+            - D. Hotfix: devops/versionner-son-projet/d-hotfix.md
+            - E. Versions: devops/versionner-son-projet/e-versions.md
+            - F. Conventions de nommage: devops/versionner-son-projet/f-conventions-nommage.md
+        - Gitlab CI:
+            - devops/gitlab-ci/index.md
         - Ansible:
-            - tutopain/ansible/index.md
-            - Installation & Configuration: tutopain/ansible/configuration.md
-            - Utilisation: tutopain/ansible/utilisation.md
+            - devops/ansible/index.md
+            - Configuration: devops/ansible/configuration.md
+            - Utilisation: devops/ansible/utilisation.md
+        # - Monitoring: devops/monitoring.md
     - Mon infrastructure:
-        - home/index.md
-        - Mon nuage:
-            - home/nuage/index.md
-            - MariaDB: home/nuage/mariadb.md
-            - Apache: home/nuage/apache.md
-            - Seafile: home/nuage/seafile.md
+        - infrastructure/index.md
         - Nananas:
-            - home/nananas/index.md
-        - Bananas:
-            - home/bananas/index.md
-    - Cheat Sheet:
-        - Docker: cheat-sheet/docker.md
-        - Scripts Bash: cheat-sheet/bash-script.md
-        - MK Docs: cheat-sheet/mkdocs.md
-    - Annexes:
-        - Sources: sources.md
+        #     - infrastructure/nananas/index.md
+        #     - Configuration: infrastructure/nananas/configuration.md
+            - Gitlab: infrastructure/nananas/gitlab.md
+        #     - LDAP: infrastructure/nananas/ldap.md
+        # - Bananas:
+        #     - infrastructure/bananas/index.md
+        #     - Configuration: infrastructure/bananas/configuration.md
+        #     - Docker: infrastructure/bananas/docker.md
+        #     - Gitlab Runner: infrastructure/bananas/gitlab-runner.md
+        #     - Ansible: infrastructure/bananas/ansible.md
+        - Nuage:
+            - infrastructure/nuage/index.md
+            - Configuration: infrastructure/nuage/configuration.md
+            - MariaDB: infrastructure/nuage/mariadb.md
+            - Seafile: infrastructure/nuage/seafile.md
+    - Cheat Sheets:
+        - Docker: cheat-sheets/docker.md
+        - Scripts Bash: cheat-sheets/bash-script.md
+        - MK Docs: cheat-sheets/mkdocs.md
+    - Ressources:
+        - ressources/index.md
         - Archives:
-            - Git: archives/git.md
-            - Monitoring: archives/monitoring.md
-            - Nextcloud: archives/nextcloud.md
-            - Samba: archives/samba.md
+            - Git: ressources/archives/git.md
+            - Monitoring: ressources/archives/monitoring.md
+            - Nextcloud: ressources/archives/nextcloud.md
+            - Samba: ressources/archives/samba.md
+            - Serveur Web Python: ressources/archives/serveur-web-python.md
 
 theme:
     name: material
     language: fr
     #################
+    icon:
+        admonition:
+            note: octicons/tag-16
+            abstract: octicons/checklist-16
+            info: octicons/info-16
+            tip: octicons/squirrel-16
+            success: octicons/check-16
+            question: octicons/question-16
+            warning: octicons/alert-16
+            failure: octicons/x-circle-16
+            danger: octicons/zap-16
+            bug: octicons/bug-16
+            example: octicons/beaker-16
+            quote: octicons/quote-16
+    #################
     favicon: images/wikipain.ico
     logo: images/wikipain.svg
     #################
     features:
+        - navigation.tracking
         - navigation.tabs
+        - navigation.tabs.sticky
         - navigation.indexes
         - search.suggest
         - search.highlight
-        - content.tabs.link
-        - content.code.annotate
     #################
     prev_next_buttons_location: bottom
     #################
@@ -80,20 +116,6 @@ theme:
           toggle:
             icon: material/weather-night
             name: NUIIITTT
-    icon:
-        admonition:
-            note: octicons/tag-16
-            abstract: octicons/checklist-16
-            info: octicons/info-16
-            tip: octicons/squirrel-16
-            success: octicons/check-16
-            question: octicons/question-16
-            warning: octicons/alert-16
-            failure: octicons/x-circle-16
-            danger: octicons/zap-16
-            bug: octicons/bug-16
-            example: octicons/beaker-16
-            quote: octicons/quote-16
 
 markdown_extensions:
     - admonition
@@ -101,23 +123,32 @@ markdown_extensions:
         permalink: ⚓︎
         toc_depth: 5
     - pymdownx.highlight:
-        anchor_linenums: true
         linenums: true
         linenums_style: pymdownx.inline
     - pymdownx.inlinehilite
     - pymdownx.superfences
     - pymdownx.snippets
-    - pymdownx.details
+    - tables
+    - md_in_html
+    - attr_list
     - def_list
     - pymdownx.tasklist:
         custom_checkbox: true
     - pymdownx.emoji:
         emoji_index: !!python/name:materialx.emoji.twemoji
         emoji_generator: !!python/name:materialx.emoji.to_svg
-    - pymdownx.tabbed:
-        alternate_style: true
-    - attr_list
-    - md_in_html
+    - pymdownx.superfences:
+        custom_fences:
+            - name: mermaid
+              class: mermaid
+              format: !!python/name:pymdownx.superfences.fence_code_format
+
+extra_javascript:
+    - https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js
+    - extras/js/tablesort.js
+
+extra_css:
+    - extras/css/extra.css
 
 plugins:
     - search:

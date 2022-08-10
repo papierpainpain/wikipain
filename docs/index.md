@@ -1,14 +1,21 @@
-# Bienviendue les gens !
+# Bienvenue !
 
-Hello ! Ici tu trouveras toutes sortes de documentations (Rasbian, technologies...).
+Hello ! Ici tu trouveras toutes sortes de documentations (Raspi, DevOps, technologies, etc.).
 
-___
-___
+## Sommaire
 
-## SOMMAIRE
+:house: [Accueil](/)
 
-1. [**Accueil**](/)
-2. [**Raspberry Pi**](/raspi/) - Toutes les astuces pour créer un serveur maison.
-3. [**Servers**](/servers/) - Installation de serveurs.
-4. [**TutoPain**](/tutopain/) - D'autres tutoriels.
-5. [**PapierBouffe**](https://bouffe.papierpain.fr) - Liste de recettes sympathiques ❤.
+:books: [Les tutoriels](/tutoriels)
+
+:infinity: [DevOps](/devops)
+
+:construction: [Mon infrastructure](/infrastructure)
+
+> Tutoriels sur la mise en place de mon infrastructure (Gitlab, LDAP, Docker, Ansible, Seafile, etc.).
+
+:material-cards: [Cheat sheets](/cheat-sheets/docker)
+
+:file_folder: [Les ressources](/ressources)
+
+:meat_on_bone: [Liste de recettes sympathiques :heart:](https://bouffe.papierpain.fr)
