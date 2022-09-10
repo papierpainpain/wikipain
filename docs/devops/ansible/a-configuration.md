@@ -2,13 +2,13 @@
 
 Configuration effectuée sur une Raspberry pi avec Rasbian (debian).
 
-???+ summary
+!!! summary
     Ansible est un logiciel permettant la configuration et la gestion d’environnements ou de groupes d’environnements.
     Gitlab CI est un outil permettant de faire du CICD qui est l'automatisation des tâches réalisées dans votre développement (test) et le déploiement dde  votre code.
 
 ## 01 - Installation
 
-???+ quote
+!!! quote
     Cette installation est pour un environnement physique (ici directement sur la raspberry pi), mais je vous conseille de faire un container docker afin d'externaliser Anisble pour une gestion plus facile de votre environnement.
 
 Mise à jour de votre environnement :

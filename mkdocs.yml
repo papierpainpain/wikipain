@@ -31,12 +31,11 @@ nav:
             - D. Hotfix: devops/versionner-son-projet/d-hotfix.md
             - E. Versions: devops/versionner-son-projet/e-versions.md
             - F. Conventions de nommage: devops/versionner-son-projet/f-conventions-nommage.md
-        - Gitlab CI:
-            - devops/gitlab-ci/index.md
+        - Gitlab CI: devops/gitlab-ci.md
         - Ansible:
             - devops/ansible/index.md
-            - Configuration: devops/ansible/configuration.md
-            - Utilisation: devops/ansible/utilisation.md
+            - A. Configuration: devops/ansible/a-configuration.md
+            - B. Utilisation: devops/ansible/b-utilisation.md
         # - Monitoring: devops/monitoring.md
     - Mon infrastructure:
         - infrastructure/index.md

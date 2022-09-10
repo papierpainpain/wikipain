@@ -7,7 +7,7 @@
 
 Si vous avez bien suivi la première étape sur la préparation, vous pouvez vous rendre compte que votre projet est déjà versionné. Mais ici, nous allons voir comment respecter les règles de l'art pour avoir le plus beau des projets (oui... Même si c'est pour un simple "Hello Worls!" :eyes:).
 
-## Rappel sur les phases de vie d'un projet
+## 01 - Rappel sur les phases de vie d'un projet
 
 Lors du développement d'une application, il est important de savoir quelles sont les phases de vie d'un projet (cf. Fig. Workflow Git).
 
