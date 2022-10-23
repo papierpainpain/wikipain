@@ -1,34 +1,45 @@
 variables:
-    PROJECT_NAME:
-        value: "wiki"
-        description: "project name in /var/www/html/"
+  VERSION:
+    value: $CI_COMMIT_REF_SLUG
+    description: Nom de la version
 
-generate-html:
-    stage: build
-    tags:
-        - docker
-        - material-mkdocs
-    script:
-        - mkdocs build --clean
-    artifacts:
-        paths:
-            - site/
+version:
+  stage: .pre
+  script:
+    - echo "WIKIPAIN_VERSION=$VERSION" >> build.env
+  artifacts:
+    reports:
+      dotenv: build.env
 
-clean-deploy:
-    stage: deploy
-    tags:
-        - localhost
-        - shell
-    script:
-        - rm -rf /var/www/html/$PROJECT_NAME
-        - mkdir /var/www/html/$PROJECT_NAME
-        - cp -r site/* /var/www/html/$PROJECT_NAME
-    needs:
-        - job: generate-html
-          artifacts: true
+docker:
+  stage: build
+  tags:
+    - shell
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  script:
+    - docker buildx b -t $CI_REGISTRY_IMAGE:$VERSION -t $CI_REGISTRY_IMAGE:latest --platform linux/arm64 -f Dockerfile --push .
+  after_script:
+    - docker logout
+
+deploy:
+  stage: deploy
+  variables:
+    PLAYBOOK_NAME: install_wikipain.yml
+    ENVIROMENT: inventory
+    VARIABLES: 'wikipain_version=$WIKIPAIN_VERSION'
+  trigger:
+    project: nananas/ansible
+    branch: master
+    strategy: depend
+  needs:
+    - job: version
+      artifacts: true
+    - job: docker
+      artifacts: false
 
 workflow:
-    rules:
-        - if: '$CI_PIPELINE_SOURCE == "web" || $CI_COMMIT_REF_SLUG == "master"'
-          when: always
-        - when: never
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "web"
+      when: always
+    - when: never
