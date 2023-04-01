@@ -16,10 +16,10 @@ build-docker:
 deploy-stack:
   extends: .template-deploy-stack
   variables:
-    DOMAIN: bouffe.papierpain.fr
+    DOMAIN: wiki.papierpain.fr
   environment:
     name: production
-    url: https://bouffe.papierpain.fr
+    url: https://wiki.papierpain.fr
 
 workflow:
   name: 💥 $VERSION - (╯°□°)╯︵ ┻━┻ 💥
