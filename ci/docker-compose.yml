@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  app:
+    image: registry.papierpain.fr/labo/wikipain:${VERSION}
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        max_attempts: 3
+      labels:
+        - traefik.enable=true
+        - traefik.docker.network=cloud-public
+        - traefik.constraint-label=cloud-public
+        
+        ## HTTP ##
+        - traefik.http.routers.wikipain.entrypoints=web
+        - traefik.http.routers.wikipain.rule=Host(`${DOMAIN?Variable not set}`)
+        - traefik.http.routers.wikipain.middlewares=wikipain-redirect
+        # HTTP: middlewares
+        - traefik.http.middlewares.wikipain-redirect.redirectscheme.scheme=https
+        - traefik.http.middlewares.wikipain-redirect.redirectscheme.permanent=true
+        
+        ## HTTPS ##
+        - traefik.http.routers.wikipain-https.entrypoints=websecure
+        - traefik.http.routers.wikipain-https.rule=Host(`${DOMAIN?Variable not set}`)
+        - traefik.http.routers.wikipain-https.tls=true
+        - traefik.http.routers.wikipain-https.tls.certresolver=letsencrypt
+        - traefik.http.routers.wikipain-https.tls.options=default
+        
+        ## LOADBALANCER ##
+        - traefik.http.services.wikipain-https.loadbalancer.server.port=80
+    networks:
+      - cloud-public
+
+networks:
+  cloud-public:
+    external: true

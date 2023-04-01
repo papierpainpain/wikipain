@@ -1,7 +1,5 @@
 # WikiPain
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://gitlab.papierpain.fr/nananas/wikipain)
-
 ## Description
 
 Site de documentation avec le thème Material pour MkDocs.

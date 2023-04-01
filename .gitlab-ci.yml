@@ -3,42 +3,26 @@ variables:
     value: $CI_COMMIT_REF_SLUG
     description: Nom de la version
 
-version:
-  stage: .pre
-  script:
-    - echo "WIKIPAIN_VERSION=$VERSION" >> build.env
-  artifacts:
-    reports:
-      dotenv: build.env
+include:
+  - project: 'labo/cicd-templates'
+    ref: master
+    file:
+      - '/templates/build-docker.gitlab-ci.yml'
+      - '/templates/deploy-swarm.gitlab-ci.yml'
 
-docker:
-  stage: build
-  tags:
-    - shell
-  before_script:
-    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
-  script:
-    - docker buildx b -t $CI_REGISTRY_IMAGE:$VERSION -t $CI_REGISTRY_IMAGE:latest --platform linux/arm64 -f Dockerfile --push .
-  after_script:
-    - docker logout
+build-docker:
+  extends: .template-build-docker
 
-deploy:
-  stage: deploy
+deploy-stack:
+  extends: .template-deploy-stack
   variables:
-    PLAYBOOK_NAME: install_wikipain.yml
-    ENVIROMENT: inventory
-    VARIABLES: 'wikipain_version=$WIKIPAIN_VERSION'
-  trigger:
-    project: nananas/ansible
-    branch: master
-    strategy: depend
-  needs:
-    - job: version
-      artifacts: true
-    - job: docker
-      artifacts: false
+    DOMAIN: bouffe.papierpain.fr
+  environment:
+    name: production
+    url: https://bouffe.papierpain.fr
 
 workflow:
+  name: 💥 $VERSION - (╯°□°)╯︵ ┻━┻ 💥
   rules:
     - if: $CI_PIPELINE_SOURCE == "web"
       when: always
